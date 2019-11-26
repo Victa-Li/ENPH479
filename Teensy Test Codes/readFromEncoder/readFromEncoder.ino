@@ -13,10 +13,10 @@
 //   Low Performance:  neither pin has interrupt capability
 
 // Change these two numbers to the pins connected to your encoder.
-#define CHANNEL_A_PLUS 0
-#define CHANNEL_A_MINUS 1
-#define CHANNEL_B_PLUS 2
-#define CHANNEL_B_MINUS 3
+#define CHANNEL_A_PLUS 17
+#define CHANNEL_A_MINUS 16
+#define CHANNEL_B_PLUS 15
+#define CHANNEL_B_MINUS 14
 
 void setup() {
   pinMode (CHANNEL_A_PLUS, INPUT);
@@ -45,13 +45,14 @@ void loop() {
   int aMinus = digitalRead(CHANNEL_A_MINUS);
   int bPlue = digitalRead(CHANNEL_B_PLUS);
   int bMinus = digitalRead(CHANNEL_B_MINUS);  
+  delay(500);  
   Serial.print("Channel A + : ");
-  Serial.println(aPlue);
-  Serial.print("Channel A - : ");
-  Serial.println(aMinus);
-  Serial.print("Channel B + : ");
-  Serial.println(bPlue);
-  Serial.print("Channel B - : ");
+  Serial.print(aPlue);
+  Serial.print(", Channel A - : ");
+  Serial.print(aMinus);
+  Serial.print(", Channel B + : ");
+  Serial.print(bPlue);
+  Serial.print(", Channel B - : ");
   Serial.println(bMinus);
   
   // 3.b Read without interrupt
