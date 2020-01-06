@@ -19,9 +19,8 @@ void setup() {
   
   Serial.begin(9600); 
   
-//  attachInterrupt(CHB, fwdflag, RISING);  
   attachInterrupt(CHA, flag, RISING);  
-  // interrupt 0 digital pin 2 positive edge trigger
+  //  attachInterrupt(CHB, fwdflag, RISING); 
 }
 
 void loop() {
@@ -29,9 +28,6 @@ void loop() {
     if (INTFLAG1)   {
          Serial.print(master_count / 20000);
          Serial.print(" ");
-//         Serial.print(bck);
-//         Serial.print(" ");
-//         Serial.print(fwd);
          Serial.println();
          delay(300);
        INTFLAG1 = 0; // clear flag
